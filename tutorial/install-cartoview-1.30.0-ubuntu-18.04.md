@@ -244,13 +244,9 @@ Untuk stop cartoview
 
 # Catatan Penting!!!
 
-Jika mengubah password default dari akun **admin** untuk login ke cartoview, nonaktifkan syntax pada */cartoview/makefile*
+Jika terjadi masalah pada cartoview kemudian melakukan **make down** untuk menonaktifkan cartoview, untuk menjalankan cartoview lagi gunakan **make up**
 
-`docker-compose exec cartoview python manage.py loaddata sample_admin.json`   
-ubah menjadi   
-`# docker-compose exec cartoview python manage.py loaddata sample_admin.json`
-
-karena jika syntax ini tidak dinonaktifkan maka password admin akan direset ke password default kembali ketika menjalankan *make run*
+Jika menjalankan cartoview lagi menggunakan **make run** maka akan ada proses migrate data sehingga konfigurasi seperti password admin yang telah diganti, akan direset ulang ke password default-nya.
 
 ___   
 Jika mengubah password default GeoServer, maka ubah syntax pada file /cartoview/cartoview/local_settings.py
