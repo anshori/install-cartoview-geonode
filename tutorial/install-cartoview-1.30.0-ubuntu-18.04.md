@@ -64,6 +64,15 @@ Cek versi docker
 Cek versi docker-compose   
 `$ docker-compose --version`
 
+___   
+## Configure where the Docker daemon listens for connections
+
+Reload the systemctl configuration   
+`$ sudo systemctl daemon-reload`   
+
+Restart Docker   
+`sudo systemctl restart docker.service`
+
 #   
 # Clone Cartoview 1.30.0
 
@@ -234,11 +243,14 @@ Install make
 Masuk ke folder cartoview   
 `$ cd cartoview`
 
-Jalankan cartoview   
+Jalankan cartoview untuk pertama kali   
 `~/cartoview$ make run`
 
 Untuk stop cartoview   
 `~/cartoview$ make down`
+
+Menjalankan kembali cartoview setelah distop   
+`~/cartoview$ make up`
 
 #
 
@@ -247,6 +259,11 @@ Untuk stop cartoview
 Jika terjadi masalah pada cartoview kemudian melakukan **make down** untuk menonaktifkan cartoview, untuk menjalankan cartoview lagi gunakan **make up**
 
 Jika menjalankan cartoview lagi menggunakan **make run** maka akan ada proses migrate data sehingga konfigurasi seperti password admin yang telah diganti, akan direset ulang ke password default-nya.
+
+Jika terpaksa akan menjalankan **make run** untuk selanjutnya karena syntax **make up** tidak bekerja sempurna, maka ubah dulu syntax pada file **/cartoview/Makefile** di bagian   
+`run: up wait prepare_oauth prepare_manager sync collect_static backfill_api_keys`   
+menjadi   
+`run: up wait collect_static`   
 
 ___   
 Jika mengubah password default GeoServer, maka ubah syntax pada file /cartoview/cartoview/local_settings.py
