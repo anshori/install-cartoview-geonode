@@ -136,6 +136,7 @@ ubah menjadi
 ___   
 ## Solusi 413 Request Entity Too Large Ketika Upload Layer
 
+![Error 413 Request Entity Too Large](../image/error_413.jpg "Error 413 Request Entity Too Large")   
 masih pada /cartoview/scripts/nginx/nginx.conf   
 copy syntax   
 `client_max_body_size 1024M;`   
