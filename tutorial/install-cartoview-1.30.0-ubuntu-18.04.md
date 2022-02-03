@@ -43,14 +43,13 @@ Lihat di sini:
 [https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/)   
    
 Catatan:   
-Jika instalasi docker pada bagian berikut ini error
-`
+Jika instalasi docker pada bagian berikut ini error   
  sudo apt-get install \   
     ca-certificates \   
     curl \   
     gnupg \   
     lsb-release   
-`   
+   
 Ubah command menjadi
 `
  sudo apt-get install ca-certificates curl gnupg lsb-release
