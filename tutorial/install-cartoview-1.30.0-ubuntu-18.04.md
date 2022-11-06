@@ -1,40 +1,43 @@
 # Install Python
 
 apt update   
-`$ sudo apt-get update`   
+`sudo apt-get update`   
 
 Install python2   
-`$ sudo apt-get install python`
+`sudo apt-get install python`
 
 Install python3 default (3.6)   
-`$ sudo apt-get install python3`
+`sudo apt-get install python3`
 
 Install python3.7   
-`$ sudo apt-get install python3.7`
+`sudo apt-get install python3.7`
 
 ___    
 ## Cek Versi Python
 
 Cek versi python2   
-`$ python --version`
+`python --version`
 
 Cek versi python3 default (3.6)    
-`$ python3 --version`
+`python3 --version`
 
 Cek versi python3.7   
-`$ python3.7 --version`
+`python3.7 --version`
 
 #   
 # Install Python-Django
 
 Install python-django   
-`$ sudo apt-get install python-django`
+`sudo apt-get install python-django`
+
+Jika menggunakan python3 gunakan command berikut
+`sudo apt-get install python3-django`
 
 ___   
 ## Cek Versi Python-Django
 
 Cek versi python-django atau django-admin   
-`$ django-admin --version`
+`django-admin --version`
 
 #   
 # Install Docker Engine
@@ -72,33 +75,33 @@ ___
 ## Cek Versi Docker, Docker Compose
 
 Cek versi docker   
-`$ docker --version`
+`docker --version`
 
 Cek versi docker-compose   
-`$ docker-compose --version`
+`docker-compose --version`
 
 ___   
 ## Configure where the Docker daemon listens for connections
 
 Reload the systemctl configuration   
-`$ sudo systemctl daemon-reload`   
+`sudo systemctl daemon-reload`   
 
 Restart Docker   
-`$ sudo systemctl restart docker.service`
+`sudo systemctl restart docker.service`
 
 #   
 # Clone Cartoview 1.30.0
 
 Install Git   
-`$ sudo apt-get update`   
-`$ sudo apt-get install git`
+`sudo apt-get update`   
+`sudo apt-get install git`
 
 Clone Cartoview 1.30.0   
-`$ git clone -b 1.30.0 https://github.com/cartologic/cartoview.git`
+`git clone -b 1.30.0 https://github.com/cartologic/cartoview.git`
 
 ___   
 Cara git clone spesifik branch seperti ini   
-`$ git clone -b <branchname> <remote-repo-url>`
+`git clone -b <branchname> <remote-repo-url>`
 
 ___    
 > clone cartoview di dalam folder */home/[USERNAME]/*
@@ -107,7 +110,7 @@ ___
 # Configuration Cartoview for Production
 
 Cek ipaddress server   
-`$ ifconfig`
+`ifconfig`
 
 ___   
 ## Ubah /cartoview/env/celery.env
@@ -252,19 +255,19 @@ ubah menjadi
 # Menjalankan Cartoview
 
 Install make   
-`$ sudo apt-get install make`
+`sudo apt-get install make`
 
 Masuk ke folder cartoview   
-`$ cd cartoview`
+`cd cartoview`
 
 Jalankan cartoview untuk pertama kali   
-`$ make run`
+`make run`
 
 Untuk stop cartoview   
-`$ make down`
+`make down`
 
 Menjalankan kembali cartoview setelah distop   
-`$ make up`
+`make up`
 
 #
 
