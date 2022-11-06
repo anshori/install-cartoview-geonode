@@ -84,7 +84,7 @@ Reload the systemctl configuration
 `$ sudo systemctl daemon-reload`   
 
 Restart Docker   
-`sudo systemctl restart docker.service`
+`$ sudo systemctl restart docker.service`
 
 #   
 # Clone Cartoview 1.30.0
@@ -240,12 +240,12 @@ ___
 ubah menjadi   
 `DEFAULT_MAP_CENTER = (longitude, latitude)`   
 
-Contoh untuk wilayah Penajam Paser Utara   
-`DEFAULT_MAP_CENTER = (116.7317104, -1.307517)   
+Contoh untuk wilayah D.I. Yogyakarta   
+`DEFAULT_MAP_CENTER = (110.4304504, -7.8766453)`
 
 `DEFAULT_MAP_ZOOM = 0`   
 ubah menjadi   
-`DEFAULT_MAP_ZOOM = 13`
+`DEFAULT_MAP_ZOOM = 11`
 
 #
 
@@ -258,13 +258,13 @@ Masuk ke folder cartoview
 `$ cd cartoview`
 
 Jalankan cartoview untuk pertama kali   
-`~/cartoview$ make run`
+`$ make run`
 
 Untuk stop cartoview   
-`~/cartoview$ make down`
+`$ make down`
 
 Menjalankan kembali cartoview setelah distop   
-`~/cartoview$ make up`
+`$ make up`
 
 #
 
