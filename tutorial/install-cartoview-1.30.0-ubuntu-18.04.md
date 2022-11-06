@@ -250,6 +250,9 @@ Contoh untuk wilayah D.I. Yogyakarta
 ubah menjadi   
 `DEFAULT_MAP_ZOOM = 11`
 
+Untuk mencari titik tengah suatu wilayah dapat menggunakan tools ini   
+[Map Center Coordinates](https://anshori.github.io/leafletjs-mapcentercoordinate)
+
 #
 
 # Menjalankan Cartoview
