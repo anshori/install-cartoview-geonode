@@ -30,7 +30,7 @@ Cek versi python3.7
 Install python-django   
 `sudo apt-get install python-django`
 
-Jika menggunakan python3 gunakan command berikut
+Jika menggunakan python3 gunakan command berikut   
 `sudo apt-get install python3-django`
 
 ___   
