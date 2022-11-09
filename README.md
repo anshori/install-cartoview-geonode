@@ -6,3 +6,6 @@
 # Install Geonode
 
 1. [Cara install Geonode Docker di Ubuntu](tutorial/install-geonode-ubuntu.md)
+
+#
+> unsorry@2021

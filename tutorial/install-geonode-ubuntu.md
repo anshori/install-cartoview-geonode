@@ -1,4 +1,6 @@
-# Install Docker Engine
+# Install Geonode Docker di Ubuntu
+
+## Install Docker Engine
 
 Lihat di sini:   
 [https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/)   
@@ -100,3 +102,6 @@ DEFAULT DB PASSWORD: postgres
 #   
 # Sumber
 [https://docs.geonode.org/en/master/install/advanced/core/index.html#deploy-a-vanilla-geonode-with-docker](https://docs.geonode.org/en/master/install/advanced/core/index.html#deploy-a-vanilla-geonode-with-docker)
+
+#
+> unsorry@2021
