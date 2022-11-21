@@ -6,14 +6,14 @@ Lihat di sini:
 [https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/)   
    
 Catatan:   
-Jika instalasi docker pada bagian berikut ini error   
- sudo apt-get install \   
-    ca-certificates \   
-    curl \   
-    gnupg \   
-    lsb-release   
+Jika instalasi docker engine pada bagian setup repository berikut ini error   
+ `sudo apt-get install \`   
+    `ca-certificates \`   
+    `curl \`   
+    `gnupg \`   
+    `lsb-release`   
    
-Ubah command menjadi
+Ubah command menjadi   
 `
  sudo apt-get install ca-certificates curl gnupg lsb-release
 `
@@ -25,11 +25,16 @@ Lihat di sini:
 [https://docs.docker.com/engine/install/linux-postinstall/](https://docs.docker.com/engine/install/linux-postinstall/)
 
 ___   
-## Install Docker Compose
+## Install Docker Compose Plugin
 
 Lihat di sini:  
 [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
 
+___   
+## Install Docker Compose
+
+`sudo apt-get update`   
+`sudo apt-get install docker-compose`      
 
 ___   
 ## Cek Versi Docker, Docker Compose
@@ -78,7 +83,8 @@ Cara git clone spesifik branch seperti ini
 `docker-compose build --no-cache`   
 `docker-compose up -d`   
 
-## Menghentikan Docker Container
+#   
+# Menghentikan Docker Container
 `cd /opt/geonode`   
 `docker-compose stop`   
 
@@ -98,6 +104,22 @@ DEFAULT DB NAME: geonode
 DEFAULT POSTGIS DB NAME: geonode_data   
 DEFAULT DB USERNAME: postgres   
 DEFAULT DB PASSWORD: postgres   
+
+#   
+# Mengubah Default Bahasa Indonesia dan Filter Bahasa hanya Indonesia dan English
+Buka .env dengan nano atau vim   
+`sudo nano .env`   
+
+Aktifkan syntax berikut   
+`# LANGUAGE_CODE=pt`   
+`# LANGUAGES=(('en','English'),('pt','Portuguese'))`   
+
+menjadi   
+`LANGUAGE_CODE=id`   
+`LANGUAGES=(('id','Indonesia'),('en','English'))`   
+
+Simpan .env kemudian jalankan   
+`docker-compose up -d`   
 
 #   
 # Sumber
