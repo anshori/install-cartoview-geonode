@@ -14,9 +14,9 @@ Jika instalasi docker engine pada bagian setup repository berikut ini error
     `lsb-release`   
    
 Ubah command menjadi   
-`
+```bash
  sudo apt-get install ca-certificates curl gnupg lsb-release
-`
+```
 
 ___   
 ## Docker Engine Linux Post Install
@@ -33,65 +33,110 @@ Lihat di sini:
 ___   
 ## Install Docker Compose
 
-`sudo apt-get update`   
-`sudo apt-get install docker-compose`      
+```bash
+sudo apt-get update
+```   
+```bash
+sudo apt-get install docker-compose
+```      
 
 ___   
 ## Cek Versi Docker, Docker Compose
 
 Cek versi docker   
-`docker --version`
+```bash
+docker --version
+```
 
 Cek versi docker-compose   
-`docker-compose --version`
+```bash
+docker-compose --version
+```
 
 ___   
 ## Configure where the Docker daemon listens for connections
 
 Reload the systemctl configuration   
-`sudo systemctl daemon-reload`   
+```bash
+sudo systemctl daemon-reload
+```   
 
 Restart Docker   
-`sudo systemctl restart docker.service`
+```bash
+sudo systemctl restart docker.service
+```
 
 #   
 # Deploy GeoNode menggunakan Docker
 
 ## Install Git (jika diperlukan)   
-`sudo apt-get update`   
-`sudo apt-get install git`
+```bash
+sudo apt-get update
+```   
+```bash
+sudo apt-get install git
+```
 
 ## Membuat folder geonode dan clone geonode
-`sudo mkdir -p /opt/geonode/`   
-`sudo chmod -Rf 775 /opt/geonode/`
+```bash
+sudo mkdir -p /opt/geonode/
+```   
+```bash
+sudo chmod -Rf 775 /opt/geonode/
+```
 
-## Clone the GeoNode source code on /opt/geonode
-`cd /opt`   
-`git clone https://github.com/GeoNode/geonode.git -b 4.x geonode`
+## Clone the GeoNode source code di direktori /opt/geonode
+```bash
+cd /opt
+```   
+```bash
+git clone https://github.com/GeoNode/geonode.git -b 4.4.x geonode
+```
 
 Jika akan clone geonode versi 3 bisa menggunakan command berikut   
-`git clone https://github.com/GeoNode/geonode.git -b 3.2.x geonode`
+```bash
+git clone https://github.com/GeoNode/geonode.git -b 3.2.x geonode
+```
 
 ___   
 Cara git clone spesifik branch seperti ini   
 `git clone <remote-repo-url> -b <branch-name> <folder-destination>`
 
+## Create .env geonode 4
+```bash
+python create-envfile.py
+```
+
 #   
 # Memulai Docker di localhost
 
-`cd /opt/geonode`   
-`docker-compose build --no-cache`   
-`docker-compose up -d`   
+```bash
+cd /opt/geonode
+```   
+```bash
+docker-compose build --no-cache
+```   
+```bash
+docker-compose up -d
+```   
 
 #   
 # Menghentikan Docker Container
-`cd /opt/geonode`   
-`docker-compose stop`   
+```bash
+cd /opt/geonode
+```   
+```bash
+docker-compose stop
+```   
 
 #   
 # Remote PostGIS Geonode
-`cd /opt/geonode`   
-`sudo nano docker-compose.yml`   
+```bash
+cd /opt/geonode
+```   
+```bash
+sudo nano docker-compose.yml
+```   
 
 ## uncomment baris 125 dan 126 sehingga menjadi seperti ini   
 `ports:`   
