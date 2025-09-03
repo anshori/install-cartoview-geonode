@@ -3,20 +3,7 @@
 ## Install Docker Engine
 
 Lihat di sini:   
-[https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/)   
-   
-Catatan:   
-Jika instalasi docker engine pada bagian setup repository berikut ini error   
- `sudo apt-get install \`   
-    `ca-certificates \`   
-    `curl \`   
-    `gnupg \`   
-    `lsb-release`   
-   
-Ubah command menjadi   
-```bash
- sudo apt-get install ca-certificates curl gnupg lsb-release
-```
+[https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)   
 
 ___   
 ## Docker Engine Linux Post Install
@@ -28,17 +15,11 @@ ___
 ## Install Docker Compose Plugin
 
 Lihat di sini:  
-[https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
+[https://docs.docker.com/compose/install/linux/#install-using-the-repository](https://docs.docker.com/compose/install/linux/#install-using-the-repository)
 
-___   
-## Install Docker Compose
-
-```bash
-sudo apt-get update
-```   
-```bash
-sudo apt-get install docker-compose
-```      
+```
+Catatan: Saat ini ketika install docker engine sudah sekaligus install docker compose plugin
+```
 
 ___   
 ## Cek Versi Docker, Docker Compose
@@ -56,7 +37,7 @@ docker-compose --version
 ___   
 ## Configure where the Docker daemon listens for connections
 
-Reload the systemctl configuration   
+Reload the systemctl configuration
 ```bash
 sudo systemctl daemon-reload
 ```   
@@ -69,70 +50,55 @@ sudo systemctl restart docker.service
 #   
 # Deploy GeoNode menggunakan Docker
 
-## Install Git (jika diperlukan)   
+## Download Geonode 4.4.3.zip (Sesuaikan versi rilisnya)
 ```bash
-sudo apt-get update
+cd /home
+```
+```bash
+sudo wget https://github.com/GeoNode/geonode/archive/refs/tags/4.4.3.zip
 ```   
-```bash
-sudo apt-get install git
-```
 
-## Membuat folder geonode dan clone geonode
+## Extract Geonode 4.4.3.zip
 ```bash
-sudo mkdir -p /opt/geonode/
+sudo unzip 4.4.3.zip
 ```   
-```bash
-sudo chmod -Rf 775 /opt/geonode/
-```
 
-## Clone the GeoNode source code di direktori /opt/geonode
+## Rename Geonode Folder
 ```bash
-cd /opt
+sudo mv geonode-4.4.3 geonode
 ```   
-```bash
-git clone https://github.com/GeoNode/geonode.git -b 4.4.x geonode
-```
-
-Jika akan clone geonode versi 3 bisa menggunakan command berikut   
-```bash
-git clone https://github.com/GeoNode/geonode.git -b 3.2.x geonode
-```
-
-___   
-Cara git clone spesifik branch seperti ini   
-`git clone <remote-repo-url> -b <branch-name> <folder-destination>`
 
 ## Create .env geonode 4
 ```bash
-python create-envfile.py
+cd /home/geonode
+```
+```bash
+python3 create-envfile.py --env_type dev --hostname localhost --geonodepwd password --geoserverpwd password --pgpwd password --dbpwd password --geodbpwd password
 ```
 
 #   
-# Memulai Docker di localhost
-
+# Build Geonode Docker Image
 ```bash
-cd /opt/geonode
+docker compose build
 ```   
 ```bash
-docker-compose build --no-cache
-```   
-```bash
-docker-compose up -d
+docker compose up -d
 ```   
 
 #   
 # Menghentikan Docker Container
 ```bash
-cd /opt/geonode
+docker compose stop
 ```   
+atau
 ```bash
-docker-compose stop
+docker compose down
 ```   
 
 #   
 # Remote PostGIS Geonode
 ```bash
-cd /opt/geonode
+cd /home/geonode
 ```   
 ```bash
 sudo nano docker-compose.yml
@@ -143,7 +109,7 @@ sudo nano docker-compose.yml
 `- "5432:5432"`   
 
 ## untuk akses menggunakan aplikasi remote database   
-HOST: localhost atau ip-address atau nama domain   
+HOST: localhost atau ip-address atau nama-domain   
 PORT: 5432   
 DEFAULT DB NAME: geonode   
 DEFAULT POSTGIS DB NAME: geonode_data   
@@ -151,20 +117,8 @@ DEFAULT DB USERNAME: postgres
 DEFAULT DB PASSWORD: postgres   
 
 #   
-# Mengubah Default Bahasa Indonesia dan Filter Bahasa hanya Indonesia dan English
-Buka .env dengan nano atau vim   
-`sudo nano .env`   
-
-Aktifkan syntax berikut   
-`# LANGUAGE_CODE=pt`   
-`# LANGUAGES=(('en','English'),('pt','Portuguese'))`   
-
-menjadi   
-`LANGUAGE_CODE=id`   
-`LANGUAGES=(('id','Indonesia'),('en','English'))`   
-
-Simpan .env kemudian jalankan   
-`docker-compose up -d`   
+# Custom Geonode UI
+[https://geonode.org/geonode-mapstore-client/master/tutorial-theme.html](https://geonode.org/geonode-mapstore-client/master/tutorial-theme.html)
 
 #   
 # Sumber
