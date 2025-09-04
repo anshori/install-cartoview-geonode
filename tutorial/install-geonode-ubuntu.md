@@ -29,9 +29,9 @@ Cek versi docker
 docker --version
 ```
 
-Cek versi docker-compose   
+Cek versi docker compose   
 ```bash
-docker-compose --version
+docker compose version
 ```
 
 ___   
