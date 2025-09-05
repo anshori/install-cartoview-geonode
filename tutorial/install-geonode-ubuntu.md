@@ -117,10 +117,6 @@ DEFAULT DB USERNAME: postgres
 DEFAULT DB PASSWORD: postgres   
 
 #   
-# Custom Geonode UI
-[https://geonode.org/geonode-mapstore-client/master/tutorial-theme.html](https://geonode.org/geonode-mapstore-client/master/tutorial-theme.html)
-
-#   
 # Sumber
 [https://docs.geonode.org/en/master/install/advanced/core/index.html#deploy-a-vanilla-geonode-with-docker](https://docs.geonode.org/en/master/install/advanced/core/index.html#deploy-a-vanilla-geonode-with-docker)
 
